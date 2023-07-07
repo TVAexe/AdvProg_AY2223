@@ -17,7 +17,6 @@ using std::vector;
 int generateRandomNumber(const int min, const int max)
 {
     // TODO: Return a random integer number between min and max
-
     int randomNumber = rand() % (max - min + 1) + min;
     return randomNumber;
 }
@@ -55,16 +54,13 @@ vector<string> readWordListFromFile(const string &filePath)
 bool isCharInWord(const char ch, const string &word)
 {
     // TODO: return true if ch is in word else return false
-    bool check = false;
-    for (int i = 0; i < word.size(); i++)
+    for (int i = 0; i < word.length(); i++)
     {
         if (ch == word[i])
-        {
-            check = true;
-            break;
-        }
+            return true;
     }
-    return check;
+
+    return false;
 }
 
 /***
@@ -77,8 +73,9 @@ bool isCharInWord(const char ch, const string &word)
 string chooseWordFromList(const vector<string> &wordList, int index)
 {
     // TODO: Return a lowercase word in the index position of the vector wordList.
-    string answer = wordList[index];
-    for (int i = 0; i < answer.size(); i++)
+    string answer;
+    answer = wordList[index];
+    for (int i = 0; i < answer.length(); i++)
     {
         answer[i] = tolower(answer[i]);
     }
@@ -94,12 +91,8 @@ string chooseWordFromList(const vector<string> &wordList, int index)
 string generateHiddenCharacters(string answerWord)
 {
     // TODO: Based on answerWord's length, generate hidden characters in form of "---"
-    string secretWord;
-    for (int i = 0; i < answerWord.length(); i++)
-    {
-        secretWord[i] = '-';
-    }
-    return secretWord;
+
+    return string(answerWord.length(), '-');
 }
 
 char getInputCharacter()
@@ -175,8 +168,6 @@ void processData(const char ch, const string &word,
         else:
             update incorrectGuess: call updateIncorrectGuess() function
             update incorrectChars: call updateEnteredChars() function
-
-
     ***/
 
     if (isCharInWord(ch, word))
