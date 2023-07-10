@@ -1,12 +1,10 @@
 #include <iostream>
 #include <string>
 #include <cmath>
-
 using std::cout;
 using std::endl;
 using std::stod;
 using std::string;
-
 double mySin(double x);
 double myCos(double x);
 double mySqrt(double x);
